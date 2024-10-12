@@ -15,7 +15,7 @@ Horizon is a game server that uses socket.io to communicate between game engines
 
 ## Community and Enterprise Editions
 
-We're excited to offer Horizon in two flavors: the Community Edition and the Enterprise Edition.
+We're excited to offer Horizon in two flavors: the Community Edition and the Enterprise Edition. The community edition can be found at: [https://github.com/Far-Beyond-Dev/Horizon-Community-Edition](https://github.com/Far-Beyond-Dev/Horizon-Community-Edition)
 
 ### Community Edition
 
@@ -29,7 +29,7 @@ Our Community Edition is open-source and free for everyone to use. It's perfect 
 
 ### Enterprise Edition
 
-For larger studios or projects that need more advanced features, we've developed the Enterprise Edition. This version includes everything in the Community Edition, plus:
+For larger studios or projects that need more advanced features, we've developed the Enterprise Edition in the form of a paid plugin for the community edition. This version includes everything in the Community Edition, plus:
 
 1. **Parent-Child-Master Architecture**: Designed for massive multiplayer environments, allowing for incredible scalability.
 2. **Advanced Load Balancing**: Sophisticated algorithms to distribute player load across servers efficiently.
