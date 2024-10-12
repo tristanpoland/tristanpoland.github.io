@@ -49,7 +49,7 @@ Building Horizon hasn't been all smooth sailing. We've run into our fair share o
 - Ensuring data consistency across a distributed system
 - Creating a flexible interface that works with various game engines
 
-But with each challenge, we've learned something new. We've deepened our understanding of network programming, distributed systems, and game engine integration. It's been an incredible learning experience for all of us.
+But with each challenge, we've learned something new. We've deepened our understanding of network programming, distributed systems, and game engine, and even hardware integration. It's been an incredible learning experience for all of us.
 
 ## Looking Forward
 
