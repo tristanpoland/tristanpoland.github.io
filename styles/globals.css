@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-dark-text;
+  }
+}
+
+@layer components {
+  .prose-dark {
+    @apply prose-invert;
+  }
+}
+
+/* Add some custom styles for code blocks */
+.prose-dark pre {
+  @apply bg-dark-surface text-dark-secondary p-4 rounded-lg;
+}
+
+.prose-dark code {
+  @apply bg-dark-surface text-dark-secondary px-1 py-0.5 rounded;
+}
+
+/* Add a subtle animation for links */
+a {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Add a glow effect on hover for primary elements */
+.text-dark-primary:hover,
+.bg-dark-primary:hover {
+  @apply shadow-lg shadow-dark-primary/50;
+}
