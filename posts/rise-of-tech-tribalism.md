@@ -13,12 +13,6 @@ This tribalism manifests in various forms across the tech landscape. We see heat
 
 Before we cover this I'll start off by saying this: I love the Ruby community! Ruby has been foundational in constructing some of the largest services we know today (Most notably GitHub) however even GitHub has been forced to rewrite performance critical portions of their platform (such as the searching system) in better performing more stable languages like Rust.
 
-Recently I was sent a blog post that positivly blew my mind, and finally convinced me to write this post, it can be found [here](https://andymaleh.blogspot.com/2024/10/javascript-is-disease-ruby-is-cure.html) for those interested.
-
-## One such example of tribalism in tech
-
-Before we cover this I'll start off by saying this: I love the Ruby community! Ruby has been foundational in constructing some of the largest services we know today (Most notably GitHub) however even GitHub has been forced to rewrite performance critical portions of their platform (such as the searching system) in better performing more stable languages like Rust.
-
 Recently I was sent a blog post that positively blew my mind, and finally convinced me to write this post, it can be found [here](https://andymaleh.blogspot.com/2024/10/javascript-is-disease-ruby-is-cure.html) for those interested.
 
 This post is a perfect storm of tech tribalism, combining inflammatory language, baseless claims, and a healthy dose of cognitive dissonance. Let's break this down:
