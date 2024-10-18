@@ -105,6 +105,4 @@ Casting in Unreal Engine 5 (and in programming in general) is a powerful tool wh
 
 As with any programming technique, the key is to use casting thoughtfully and appropriately. When you need to access specific functionality or ensure type safety, don't be afraid to use casting. Your code will be cleaner, safer, and just as performant.
 
-Understanding the appropriate use of both casting and interfaces is key to writing efficient, maintainable code in Unreal Engine 5. Each has its place in game development, and mastering both will make you a more effective UE5 developer.
-
 So cast away, UE5 developers—just do it wisely!
