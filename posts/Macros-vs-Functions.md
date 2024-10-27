@@ -109,6 +109,14 @@ void LogMessage(const TCHAR* Category, ELogVerbosity::Type Verbosity,
 
 The macro version can directly insert file and line information, while the function version would need to capture these details differently. However, both versions can be optimized effectively by modern compilers, especially with Link Time Optimization (LTO) enabled.
 
+## Code Generation Power
+One of the most powerful aspects of macros is their ability to generate multiple distinct code entities from a single invocation - something functions fundamentally cannot do. Consider a common pattern in game engines where you might need to define multiple related events. While a function must return a single result, a macro like define_event! can expand into multiple complete type and function definitions. For example, a single macro call like
+
+```rs
+define_event!(socket, connected(), disconnected(), message_received(), error())
+```
+might expand into several distinct event types, their handlers, and registration code. This ability to generate multiple interrelated code structures from a single declaration makes macros indispensable for reducing boilerplate and maintaining consistency in systems that require multiple coordinated definitions. This is particularly valuable in game engines where event systems, component registrations, and network message handlers often require multiple coordinated type and function definitions that follow consistent patterns.
+
 ## Making Informed Decisions
 
 Consider this real-world scenario using Rust's declarative macros:
