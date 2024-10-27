@@ -31,8 +31,9 @@ Binary tree script
 | ruby | 856ms | 5.9ms | 36.4MB | 813ms | 20ms | ruby 3.3.0 |
 | ruby | 910ms | 25ms | 437.3MB | - | - | - |
 
+**_Note:_** while Ruby at first glance has lower memory usage this is because the chart measures peak usage as opposed to time normalized usage. JS is executing the instructions faster and therefore will use more memory during runtime at once.
 
-> We sourced all of our stats for this example from: https://programming-language-benchmarks.vercel.app/ruby-vs-javascript where you can find all the source code for these tests and many more on GitHub.
+**_Source_** We sourced all of our stats for this example from: https://programming-language-benchmarks.vercel.app/ruby-vs-javascript where you can find all the source code for these tests and many more on GitHub.
 
 
 These performance metrics demonstrate that JavaScript consistently outperforms Ruby by a factor of nearly 3x across nearly all of the various computational tasks provided in the tests on their site. The gap isn't marginal – it's substantial enough to impact both user experience and infrastructure costs. These performance differences become particularly pronounced at scale, where even small efficiency gaps can translate into significant operational costs.
