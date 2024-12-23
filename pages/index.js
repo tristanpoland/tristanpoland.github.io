@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import Link from 'next/link';
 
 const projects = [
   {
@@ -132,18 +133,33 @@ const experiences = [
     tags: ["Training", "Strategy", "Leadership", "Software Development"]
   }
 ];
-import Link from 'next/link';
-import Image from 'next/image';
 
-export default function Home() {
+const keyframes = `
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+  }
+`;
+
+const Portfolio = () => {
   const [selectedSection, setSelectedSection] = useState('projects');
 
   return (
     <div className="min-h-screen bg-black text-gray-300">
+      <style>{keyframes}</style>
       <main className="max-w-6xl mx-auto py-16 px-6">
         <div className="mb-24">
           <h1 className="text-5xl font-bold text-blue-400 mb-6">
-            Hey, I'm Tristan 👋
+            Hey, I'm Tristan{' '}
+            <span className="inline-block" style={{ animation: 'wave 2.5s ease-in-out infinite', transformOrigin: '70% 70%' }}>
+              👋
+            </span>
           </h1>
           <p className="text-lg text-gray-400 mb-8 max-w-2xl">
             Full-stack developer focused on building innovative game server solutions and open-source tools.
@@ -238,4 +254,6 @@ export default function Home() {
       </main>
     </div>
   );
-}
+};
+
+export default Portfolio;
