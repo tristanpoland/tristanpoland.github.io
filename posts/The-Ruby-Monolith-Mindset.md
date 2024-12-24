@@ -1,6 +1,8 @@
 ---
 title: "The Ruby Monolith Mindset: When Familiarity Breeds Technical Debt"
 date: "2024-10-27"
+categories: ["Engineering", "Performance"] 
+tags: ["Ruby", "Monoliths", "Architecture"]
 ---
 
 # The Ruby Monolith Mindset: When Familiarity Breeds Technical Debt

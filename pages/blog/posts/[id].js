@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { getAllPostIds, getPostData } from '../../../lib/posts';
+import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -12,7 +12,6 @@ const CustomImage = ({ src, alt }) => {
       alt={alt}
       width={600}
       height={400}
-      layout="responsive"
       className="rounded-xl"
     />
   );
@@ -26,6 +25,8 @@ const CustomParagraph = (props) => {
 };
 
 export default function Post({ postData }) {
+  if (!postData) return null;
+
   return (
     <div className="min-h-screen bg-black text-gray-300">
       <main className="max-w-4xl mx-auto py-16 px-6">
@@ -41,6 +42,19 @@ export default function Post({ postData }) {
 
         <article className="bg-gray-900/30 rounded-2xl">
           <div className="p-8">
+            <div className="flex flex-wrap gap-2 mb-4">
+              {postData.categories?.map(category => (
+                <span key={category} className="px-3 py-1 bg-blue-900/30 rounded-full text-blue-400 text-sm">
+                  {category}
+                </span>
+              ))}
+              {postData.tags?.map(tag => (
+                <span key={tag} className="px-3 py-1 bg-gray-800 rounded-full text-gray-300 text-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
             <h1 className="text-4xl font-bold mb-4 text-white">{postData.title}</h1>
             <div className="flex items-center gap-4 text-gray-400 mb-8">
               <span>Tristan Poland</span>
@@ -74,19 +88,27 @@ export default function Post({ postData }) {
 }
 
 export async function getStaticPaths() {
+  
   const paths = await getAllPostIds();
-  console.log('Paths:', paths); // Debug log
   return {
     paths,
-    fallback: false
+    fallback: 'blocking'
   };
 }
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id);
-  return {
-    props: {
-      postData
+  try {
+    const postData = await getPostData(params.id);
+    if (!postData) {
+      return { notFound: true };
     }
-  };
+    return {
+      props: {
+        postData
+      }
+    };
+  } catch (error) {
+    console.error(`Error getting post data for ${params.id}:`, error);
+    return { notFound: true };
+  }
 }
