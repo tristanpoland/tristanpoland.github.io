@@ -1,9 +1,11 @@
 ---
-title: "VPNs: When will they save us, and when wont they?"
+title: "VPNs: When will they save us, and when won't they?"
 date: "2024-10-17"
 ---
 
-We have all seen segments on Youtube and platforms like it advertising that you are "safer" online when using a VPN. This can be true as we will see, but usually only in very specific circumstances. In this post we will dive into these claims and show when VPNs will, and will not save you.
+# Addressing the issue
+
+We have all seen segments on YouTube and platforms like it advertising that you are "safer" online when using a VPN. This can be true as we will see, but usually only in very specific circumstances. In this post we will dive into these claims and show when VPNs will, and will not save you.
 
 # The Claims
 
@@ -53,14 +55,15 @@ With Corporate VPN:
 - Enforces company security policies
 - Protects non-HTTPS internal traffic
 
-Verdict: VPN is essential here for access control, but not security.
+### Verdict
+The VPN used here is essential here for access control, but not security as long as we are using HTTPS.
 
 ## Case Study 3: Monitoring Prevention
 
-Lisa works at a university and wants to prevent IT from seeing her browsing.
+Lisa works at a university and wants to prevent IT from seeing what sites she visits.
 
 With HTTPS:
-- IT can see which sites she visits
+- IT can see which sites she visits (Not the data she sends them)
 - Cannot see specific pages or content
 - Cannot intercept any encrypted data
 - DNS queries visible to network
@@ -71,14 +74,21 @@ With VPN:
 - Trading one observer for another
 - Still protected by HTTPS anyway
 
-Verdict: In this case, the VPN only shifts visibility from IT to VPN provider, HTTPS handles actual security with or without the VPN. 
+### Verdict
+In this case, the VPN only shifts visibility from IT to VPN provider, HTTPS handles actual security with or without the VPN. 
+
+# The Risk of VPNs
+
+An often-overlooked concern with VPNs is that they create a single point of surveillance. While VPNs claim to protect privacy, routing all traffic through a single provider actually creates a perfect bottleneck for mass surveillance. Every site you visit, every connection you make, flows through your VPN provider's servers. This gives them complete visibility into your browsing patterns, relating them directly to you and your account effectively concentrating all your privacy risk in one place.
+
+This concentration of data becomes particularly concerning when considering government surveillance. If a state actor compels or compromises a VPN provider, they gain immediate access to every user's complete browsing history. They can easily correlate users with their online activities and build comprehensive profiles of their internet usage. Historical logs, if kept by the VPN provider, could expose months or years of user behavior.
+
+In contrast, standard HTTPS without a VPN distributes this trust across many individual websites. While each site knows when you visit them, no single entity can see your complete browsing pattern. This distribution of data makes mass surveillance significantly more challenging - a government would need to compromise multiple independent sites rather than just one VPN provider. Even if they succeed in monitoring one website, they can't see your interactions with other sites.
+
+Criminal actors targeting VPNs pose similar risks. A compromised VPN provider gives attackers visibility into all user connections, potential access to login attempts across various sites, and the ability to track user locations and behaviors. They might even inject malicious content into the encrypted tunnel. This level of access makes VPN providers an attractive target for bad actors, turning a security tool into a potential vulnerability.
+
+The fundamental issue is that using a VPN requires placing absolute trust in a single provider. While HTTPS also requires trust, it distributes that trust across many separate entities, significantly reducing the impact of any single compromise. Before investing in a VPN service consider whether you can really trust that "no logs" policy they claim to have. While considering that keep in mind the deceptive marketing tactics they have used as shown in the case studies.
 
 # The Bottom Line
 
-VPNs use the same encryption technology as HTTPS but serve a fundamentally different purpose. While HTTPS protects the content of your communication, VPNs primarily hide who you're communicating with. For most security concerns, modern HTTPS is sufficient protection. VPNs are most valuable when you need to:
-
-1. Access resources on private networks
-2. Hide your browsing patterns from local observers
-3. Protect non-HTTPS traffic (increasingly rare)
-
-Before purchasing a VPN subscription for security, consider whether HTTPS already provides the protection you need.
+VPNs use the same encryption technology as HTTPS but serve a fundamentally different purpose. While HTTPS protects the content of your communication, VPNs primarily hide who you're communicating with. For security concerns HTTPS is plenty sufficient, and in most cases even more ideal than a VPN.
