@@ -1,6 +1,8 @@
 ---
 title: "Reimagining CI/CD: My Journey Building a Rust-Based System for pipelines"
 date: "2024-10-12"
+categories: ["Engineering", "CI", "Rust"] 
+tags: ["Automation"]
 ---
 
 As a software developer, I've long been fascinated by the intricacies of CI/CD systems. Recently, I embarked on an ambitious project: creating a Rust-based CI/CD system that addresses some of the common pain points I've encountered with tools like Concourse CI. Today, I'm excited to share my progress and insights from this endeavor.

@@ -1,6 +1,8 @@
 ---
 title: "Demystifying Casting: It's Not the Villain You Think It Is"
 date: "2024-10-17"
+categories: ["Programing", "Performance"] 
+tags: ["Architecture"]
 ---
 
 In the world of Unreal Engine 5 game development (particularly in Blueprint), there's a persistent myth that casting is inherently bad for performance. Today, we're going to bust this myth wide open and explain why casting isn't just acceptable—it's often necessary and even beneficial in game development.

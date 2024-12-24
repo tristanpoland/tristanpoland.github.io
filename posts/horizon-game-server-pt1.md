@@ -1,6 +1,8 @@
 ---
 title: "Horizon: A Universal Game Server Solution with Enterprise-Grade Capabilities"
 date: "2024-10-12"
+categories: ["Engineering", "Multiplayer", "Gaming", "Rust"] 
+tags: ["Automation", "Distributed Computing"]
 ---
 
 Hey there, fellow developers and space enthusiasts! I'm thrilled to share with you a project that's been consuming my nights and weekends (and let's be honest, quite a few work hours too) for the past several months. Along with a group of close friends, I've been working on something we call Horizon - a custom game server software designed for multiplayer games built with any game engine.
