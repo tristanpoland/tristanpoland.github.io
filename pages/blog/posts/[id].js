@@ -88,11 +88,13 @@ export default function Post({ postData }) {
 }
 
 export async function getStaticPaths() {
-  
-  const paths = await getAllPostIds();
+  const paths = (await getAllPostIds()).map(({ params }) => ({
+    params: { id: params.id }
+  }));
+  console.log('Generated paths:', paths);
   return {
     paths,
-    fallback: 'blocking'
+    fallback: false
   };
 }
 
