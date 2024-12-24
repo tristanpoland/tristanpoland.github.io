@@ -84,7 +84,7 @@ export default function Home({ allPostsData = [] }) {
 
         <div className="space-y-6">
           {filteredPosts.map(post => (
-            <Link key={post.id} href={`/posts/${post.id}`} className="block bg-gray-900/30 rounded-lg p-8 hover:bg-gray-900/40 transition-colors">
+            <Link key={post.id} href={`/blog/posts/${post.id}`} className="block bg-gray-900/30 rounded-lg p-8 hover:bg-gray-900/40 transition-colors">
               <div className="flex flex-wrap gap-2 mb-4">
                 {Array.isArray(post.categories) && post.categories.map(cat => (
                   <span key={cat} className="px-3 py-1 bg-blue-900/30 rounded-full text-blue-400 text-sm">
