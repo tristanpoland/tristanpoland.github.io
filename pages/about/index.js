@@ -96,7 +96,7 @@ export default function About() {
                 boundaries of what's possible in software development.
               </p>
               <Link 
-                href="/projects"
+                href="/"
                 className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
               >
                 Explore my projects
