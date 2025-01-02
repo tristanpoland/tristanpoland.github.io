@@ -91,3 +91,6 @@ export const projects = [
     ]
   }
 ];
+
+const DummyComponent = () => null;
+export default DummyComponent;

@@ -36,3 +36,6 @@ export const experiences = [
     tags: ["Training", "Strategy", "Leadership", "Software Development"]
   }
 ];
+
+const DummyComponent = () => null;
+export default DummyComponent;
