@@ -29,7 +29,7 @@ export const projects = [
     title: "OmniForge",
     description: "Universal, open-source deployment platform for cloud-native applications with enterprise-grade security and 99.99% uptime.",
     tags: ["Rust", "Kubernetes", "Docker", "GitOps"],
-    link: "https://github.com/tristanpoland/omniforge",
+    link: "https://github.com/omni-forge",
     features: [
       "Universal deployment across clouds",
       "Advanced container orchestration",
