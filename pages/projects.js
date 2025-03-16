@@ -26,7 +26,7 @@ export const projects = [
     ]
   },
   {
-    title: "OmniForge",
+    title: "OmniCloud",
     description: "Universal, open-source deployment platform for cloud-native applications with enterprise-grade security and 99.99% uptime.",
     tags: ["Rust", "Kubernetes", "Docker", "GitOps"],
     link: "https://github.com/OmniCloudOrg",
