@@ -1,11 +1,9 @@
 ---
-title: "Legion Slim 7 16IRH8: A Developer's Companion for Rust, Unreal Engine, and Web Development"
+title: "My Journey with the Legion Slim 7 16IRH8: A Rust, Unreal Engine, and Web Developer's Perspective"
 date: "2025-04-10"
 categories: ["Technology", "Development", "Hardware Review"]
 tags: ["Legion Slim 7", "Rust Development", "Unreal Engine", "Web Development", "WSL", "Dev Containers"]
 ---
-
-# My Development Journey with the Legion Slim 7 16IRH8: A Rust, Unreal Engine, and Web Developer's Perspective
 
 ## Introduction
 
