@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { Menu, X, Search } from 'lucide-react';
 
 // Enhanced navigation with pinned flag
-const url_prefix= '/'
+const url_prefix = '/';
 
 const pages = [
-  { name: 'Home', href: `${url_prefix}`, description: 'Welcome to Tristan Poland\'s personal website', pinned: true },
+  { name: 'Home', href: url_prefix, description: 'Welcome to Tristan Poland\'s personal website', pinned: true },
   { name: 'About', href: `${url_prefix}about`, description: 'Learn more about Tristan Poland and his journey', pinned: true },
   { name: 'Blog', href: `${url_prefix}blog`, description: 'Latest thoughts on web development and design', pinned: true },
   { name: 'Projects', href: `${url_prefix}projects`, description: 'Featured project: Portfolio redesign 2025', pinned: true },
@@ -36,7 +36,7 @@ export default function Navbar() {
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
-        const response = await fetch('https://tridentforu.com/blog/blog-index.json');
+        const response = await fetch(`${url_prefix}blog/blog-index.json`);
         const data = await response.json();
         setBlogPosts(data);
       } catch (error) {
@@ -52,18 +52,19 @@ export default function Navbar() {
     setIsLoading(true);
     
     if (searchQuery.trim() === '') {
-      // Show all pages first, then a selection of blogs by default
-      const combinedResults = [
-        ...pages,
-        ...blogPosts.slice(0, 3).map(post => ({
-          name: post.title,
-          href: `${url_prefix}blog/posts/${post.slug}`,
-          description: post.excerpt.replace(/\r\n/g, ' ').replace(/#/g, '').replace(/\s+/g, ' ').trim().substring(0, 100) + '...',
-          type: 'blog',
-          date: post.date,
-          readingTime: post.readingTime
-        }))
-      ];
+      // FIXED: Always show pages first, then blogs
+      const pageResults = [...pages];
+      const blogResults = blogPosts.slice(0, 3).map(post => ({
+        name: post.title,
+        href: `${url_prefix}blog/posts/${post.slug}`,
+        description: truncateText(post.excerpt, 100),
+        type: 'blog',
+        date: post.date,
+        readingTime: post.readingTime
+      }));
+      
+      // Combine with pages first, then blogs
+      const combinedResults = [...pageResults, ...blogResults];
       setSearchResults(combinedResults);
       setSelectedResultIndex(combinedResults.length > 0 ? 0 : -1);
       setIsLoading(false);
@@ -86,20 +87,34 @@ export default function Navbar() {
       post.tags.some(tag => tag.toLowerCase().includes(query))
     ).map(post => ({
       name: post.title,
-      href: `${url_prefix}/blog/posts/${post.slug}`,
-      description: post.excerpt.replace(/\r\n/g, ' ').replace(/#/g, '').replace(/\s+/g, ' ').trim().substring(0, 100) + '...',
+      href: `${url_prefix}blog/posts/${post.slug}`,
+      description: truncateText(post.excerpt, 100),
       type: 'blog',
       date: post.date,
       readingTime: post.readingTime
     }));
     
-    // Combine and sort results (pages first, then blogs)
+    // FIXED: Always combine with pages first, then blogs
     const combinedResults = [...pageResults, ...blogResults];
     
     setSearchResults(combinedResults);
     setSelectedResultIndex(combinedResults.length > 0 ? 0 : -1);
     setIsLoading(false);
   }, [searchQuery, blogPosts]);
+
+  // Helper function to truncate text and ensure it's single line
+  const truncateText = (text, maxLength) => {
+    if (!text) return '';
+    // Remove line breaks, markdown symbols, and excessive spaces
+    const cleanText = text
+      .replace(/\r?\n/g, ' ')
+      .replace(/#/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    
+    if (cleanText.length <= maxLength) return cleanText;
+    return cleanText.substring(0, maxLength) + '...';
+  };
 
   // Handle keyboard events
   useEffect(() => {
@@ -156,10 +171,12 @@ export default function Navbar() {
   }, [isSearchOpen]);
 
   const handleResultSelection = (result) => {
-    // Navigate to the selected page
+    // FIXED: Ensure we're using the exact URL as is, without any manipulation
     console.log(`Navigating to: ${result.href}`);
     setSearchQuery('');
     setIsSearchOpen(false);
+    
+    // Use window.location.href for direct navigation to avoid any path issues
     window.location.href = result.href;
   };
 
@@ -180,7 +197,7 @@ export default function Navbar() {
       }`}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href={url_prefix} className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-blue-400 rounded-lg flex items-center justify-center">
                 <span className="text-black font-bold text-xl">T</span>
               </div>
@@ -284,7 +301,49 @@ export default function Navbar() {
                 </div>
               ) : (
                 <>
-                  {/* Group results by type */}
+                  {/* FIXED: Reorganized to show pages first */}
+                  {/* Pages heading if there are pages in results */}
+                  {searchResults.some(result => !result.type) && (
+                    <div className="py-1 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                      Pages
+                    </div>
+                  )}
+                  
+                  {/* Display page results */}
+                  {searchResults
+                    .filter(result => !result.type)
+                    .map((result, index) => {
+                      const resultIndex = searchResults.indexOf(result);
+                      return (
+                        <div 
+                          key={result.href}
+                          className={`py-2 px-3 hover:bg-gray-800 rounded cursor-pointer ${
+                            resultIndex === selectedResultIndex ? 'bg-gray-800' : ''
+                          }`}
+                          onClick={() => handleResultSelection(result)}
+                          onMouseEnter={() => setSelectedResultIndex(resultIndex)}
+                        >
+                          <div className="flex items-center justify-between mb-1">
+                            <div className="text-blue-400 text-sm">{result.name}</div>
+                            {result.pinned && (
+                              <div className="bg-blue-900/40 text-blue-300 text-xs px-2 py-0.5 rounded">
+                                Pinned
+                              </div>
+                            )}
+                          </div>
+                          <div className="text-white text-base truncate">{result.description}</div>
+                        </div>
+                      );
+                    })
+                  }
+                  
+                  {/* Separator if both types are present */}
+                  {searchResults.some(result => result.type === 'blog') && 
+                   searchResults.some(result => !result.type) && (
+                    <div className="border-t border-gray-800 my-2"></div>
+                  )}
+                  
+                  {/* Blog heading if there are blog posts in results */}
                   {searchResults.some(result => result.type === 'blog') && (
                     <div className="py-1 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                       Blog Posts
@@ -316,48 +375,8 @@ export default function Navbar() {
                               </div>
                             </div>
                           </div>
-                          <div className="text-white text-base">{result.description}</div>
-                        </div>
-                      );
-                    })
-                  }
-                  
-                  {/* Separator if both types are present */}
-                  {searchResults.some(result => result.type === 'blog') && 
-                   searchResults.some(result => !result.type) && (
-                    <div className="border-t border-gray-800 my-2"></div>
-                  )}
-                  
-                  {/* Pages heading if there are pages in results */}
-                  {searchResults.some(result => !result.type) && (
-                    <div className="py-1 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                      Pages
-                    </div>
-                  )}
-                  
-                  {/* Display page results */}
-                  {searchResults
-                    .filter(result => !result.type)
-                    .map((result, index) => {
-                      const resultIndex = searchResults.indexOf(result);
-                      return (
-                        <div 
-                          key={result.href}
-                          className={`py-2 px-3 hover:bg-gray-800 rounded cursor-pointer ${
-                            resultIndex === selectedResultIndex ? 'bg-gray-800' : ''
-                          }`}
-                          onClick={() => handleResultSelection(result)}
-                          onMouseEnter={() => setSelectedResultIndex(resultIndex)}
-                        >
-                          <div className="flex items-center justify-between mb-1">
-                            <div className="text-blue-400 text-sm">{result.name}</div>
-                            {result.pinned && (
-                              <div className="bg-blue-900/40 text-blue-300 text-xs px-2 py-0.5 rounded">
-                                Pinned
-                              </div>
-                            )}
-                          </div>
-                          <div className="text-white text-base">{result.description}</div>
+                          {/* FIXED: Added truncate class to ensure single line */}
+                          <div className="text-white text-base truncate">{result.description}</div>
                         </div>
                       );
                     })
