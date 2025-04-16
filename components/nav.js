@@ -86,7 +86,7 @@ export default function Navbar() {
       post.tags.some(tag => tag.toLowerCase().includes(query))
     ).map(post => ({
       name: post.title,
-      href: `${url_prefix}post/${post.slug}`,
+      href: `${url_prefix}/blog/posts/${post.slug}`,
       description: post.excerpt.replace(/\r\n/g, ' ').replace(/#/g, '').replace(/\s+/g, ' ').trim().substring(0, 100) + '...',
       type: 'blog',
       date: post.date,
