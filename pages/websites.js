@@ -111,7 +111,7 @@ export default function WebsitesGallery() {
         <title>Website Gallery</title>
       </Head>
       <div className="max-w-5xl mx-auto px-4 pt-12">
-        <h1 className="text-3xl font-bold text-blue-400 mb-6">AMOLED Website Gallery</h1>
+        <h1 className="text-3xl font-bold text-blue-400 mb-6">Website Gallery</h1>
         <input
           type="text"
           placeholder="Search websites..."
