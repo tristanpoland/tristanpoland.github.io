@@ -10,6 +10,7 @@ const pages = [
   { name: 'About', href: `${url_prefix}about`, description: 'Learn more about Tristan Poland and his journey', pinned: true },
   { name: 'Blog', href: `${url_prefix}blog`, description: 'Latest thoughts on web development and design', pinned: true },
   { name: 'Projects', href: `${url_prefix}projects`, description: 'Featured project: Portfolio redesign 2025', pinned: true },
+  { name: 'Websites', href: `${url_prefix}websites`, description: 'Showcase of personal and professional websites', pinned: true },
 ];
 
 export default function Navbar() {
