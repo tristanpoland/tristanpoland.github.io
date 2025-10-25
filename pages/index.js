@@ -27,9 +27,9 @@ const Portfolio = () => {
       </style>
       <main className="max-w-6xl mx-auto py-16 px-6">
         <div className="mb-24 space-y-12">
-          <div className="flex flex-col sm:flex-row gap-8 items-center sm:items-start">
-            <div className="flex-shrink-0">
-              <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-400/30 shadow-lg shadow-blue-500/20">
+          <div className="flex flex-col sm:flex-row gap-8 items-center sm:items-stretch">
+            <div className="flex-shrink-0 flex items-center">
+              <div className="w-48 h-full rounded-full overflow-hidden border-4 border-blue-400/30 shadow-lg shadow-blue-500/20 aspect-square">
                 <img
                   src="/image/pfp.png"
                   alt="Tristan Poland"
