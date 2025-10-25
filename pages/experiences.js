@@ -21,7 +21,7 @@ export const experiences = [
     title: "Software and Cloud Engineer",
     company: "FiveTwenty Inc.",
     period: "May 2023 - Present",
-    type: "Internship",
+    type: "Jr Cloud Engineer",
     location: "United States · Remote",
     description: "Contributing to application platforms and distributed systems, working with CloudFoundry, BOSH, Terraform, Vault, Consul, and Ruby on Rails. Supporting SaaS and application development solutions.",
     tags: ["CloudFoundry", "Terraform", "Ruby on Rails", "Distributed Systems"]
