@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "Pulsar Engine",
+    "tagline": "The next-generation game engine that you deserve implemented in rust on top of GPUI",
+    "content_file": "/content/projects/pulsar.md",
+    "image": "/image/pulsar.png",
+    "tags": ["Rust", "GPUI", "DirectX", "Vulkan", "WGPU", "Netcode"],
+    "github": "https://github.com/Far-Beyond-Pulsar/Pulsar-Native",
+    "demo": "https://pulsar.farbeyond.dev/",
+    "stats": {
+      "stars": 215,
+      "forks": 15,
+      "updated": "2025-12-17"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Horizon",
+    "tagline": "Game servers made scalable",
+    "content_file": "/content/projects/horizon.md",
+    "image": "/image/horizon.png",
+    "tags": ["Rust", "C", "Docker", "Netcode"],
+    "github": "https://github.com/Far-Beyond-Dev/Horizon",
+    "demo": "https://horizon.farbeyond.dev/",
+    "stats": {
+      "stars": 88,
+      "forks": 13,
+      "updated": "2025-12-17"
+    }
+  },
+  {
+    "id": 3,
+    "title": "ChaiLauncher",
+    "tagline": "A Tauri-NextJS based Minecraft launcher",
+    "content_file": "/content/projects/chai.md",
+    "image": "/image/chai.png",
+    "tags": ["Rust", "C", "Docker", "Netcode"],
+    "github": "https://github.com/Chai-Foundation/ChaiLauncher",
+    "demo": "https://chai-foundation.github.io/",
+    "stats": {
+      "stars": 5,
+      "forks": 2,
+      "updated": "2025-8-31"
+    }
+  }
+]

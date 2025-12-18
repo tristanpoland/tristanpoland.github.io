@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { experiences } from './experiences';
+import FeaturedProjects from '../components/FeaturedProjects';
 
 const Portfolio = () => {
   const [selectedSection, setSelectedSection] = useState('projects');
@@ -83,6 +84,9 @@ const Portfolio = () => {
             </Link>
           </div>
         </div>
+
+        {/* Featured Projects Section */}
+        <FeaturedProjects />
 
         {/* Experience Section */}
         <div className="space-y-12">
