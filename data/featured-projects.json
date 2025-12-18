@@ -35,7 +35,7 @@
     "tagline": "A Tauri-NextJS based Minecraft launcher",
     "content_file": "/content/projects/chai.md",
     "image": "/image/chai.png",
-    "tags": ["Rust", "C", "Docker", "Netcode"],
+    "tags": ["Rust", "NextJS", "Desktop App", "Gaming"],
     "github": "https://github.com/Chai-Foundation/ChaiLauncher",
     "demo": "https://chai-foundation.github.io/",
     "stats": {
