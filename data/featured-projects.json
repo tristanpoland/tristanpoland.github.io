@@ -4,7 +4,7 @@
     "title": "Pulsar Engine",
     "tagline": "The next-generation game engine that you deserve implemented in rust on top of GPUI",
     "content_file": "/content/projects/pulsar.md",
-    "image": "/image/pulsar.png",
+    "image": "https://github.com/user-attachments/assets/1d68df11-0de2-40e1-9037-91811bc0bef9",
     "tags": ["Rust", "GPUI", "DirectX", "Vulkan", "WGPU", "Netcode"],
     "github": "https://github.com/Far-Beyond-Pulsar/Pulsar-Native",
     "demo": "https://pulsar.farbeyond.dev/",
