@@ -30,24 +30,39 @@ export default function About() {
   return (
     <div className="min-h-screen bg-black text-gray-300">
       <main className="max-w-6xl mx-auto py-16 px-6">
-        {/* Hero Section */}
-        <section className="mb-24">
-          <h1 className="text-5xl font-bold text-blue-400 mb-8">
-            The Philosophy Behind My Projects
-          </h1>
-          <p className="text-xl text-gray-400 max-w-3xl">
-            In software development, we often accept tools and systems as they are. 
-            I believe in questioning and reimagining these foundations. Each project 
-            represents an attempt to solve a fundamental problem in a more elegant, 
-            efficient way.
-          </p>
+        {/* Hero + Why Rebuild heading (image on right) */}
+        <section className="mb-24 grid gap-8 md:grid-cols-2 items-start">
+          <div className="space-y-16">
+            <div>
+              <h1 className="text-5xl font-bold text-blue-400 mb-8">
+                The Philosophy Behind My Projects
+              </h1>
+              <p className="text-xl text-gray-400 max-w-3xl">
+                In software development, we often accept tools and systems as they are. 
+                I believe in questioning and reimagining these foundations. Each project 
+                represents an attempt to solve a fundamental problem in a more elegant, 
+                efficient way.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-12">
+                Why Rebuild What Already Exists?
+              </h2>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <img
+              src="/image/char_no_bg.png"
+              alt="Illustration character"
+              className="w-full max-w-[400px] h-auto rounded-lg shadow-2xl md:sticky md:top-20"
+            />
+          </div>
         </section>
 
-        {/* Why Rebuild Section */}
+        {/* Why Rebuild cards */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold text-white mb-12">
-            Why Rebuild What Already Exists?
-          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {philosophyPoints.map((point, index) => (
               <div key={index} className="bg-gray-900/30 rounded-lg p-8 hover:bg-gray-900/50 transition-all">
